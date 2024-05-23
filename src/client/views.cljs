@@ -19,7 +19,7 @@
 (defn home-page []
   (let [name  @(rf/subscribe [::subs/name])
         count @(rf/subscribe [::subs/count])]
-    [:<>
+    [:div.m-4
      [:h1.text-3xl.font-extrabold.mb-4
       "Meet " name "!"]
      [:h2.font-extrabold
@@ -33,7 +33,9 @@
      [:br]
      [:button.btn.btn-primary.m-4
       {:on-click #(rf/dispatch [::events/push-state ::routes/demo])}
-      "Go to demo"]]))
+      "Go to demo"]
+     [:h2.font-extrabold 
+      "testing"]]))
 
 ;; (defn href
 ;;   "return relative url for given route. Url can be used in HTML links."
