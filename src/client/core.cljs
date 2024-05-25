@@ -2,14 +2,15 @@
   (:require
    [client.events   :as events]
    [client.router   :as-alias routes :refer [init-routes! router]]
-   [client.views    :refer [router-component]]
+   [client.views    :refer [nav router-component]]
    [clojure.string  :as str]
    [re-frame.core   :as rf]
    [reagent.dom     :as rdom]
    [shadow.resource :as rc]))
 
 (defn app []
-  [:<>
+  [:div.container
+   [nav]
    [router-component {:router router}]])
 
 (defn ^:dev/after-load start []

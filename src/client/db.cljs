@@ -5,3 +5,5 @@
    :count 0
    :current-route nil})
 
+(comment
+  initial-app-db)

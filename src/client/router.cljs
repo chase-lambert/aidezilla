@@ -1,7 +1,8 @@
 (ns client.router
   (:require
    [client.events        :as events]
-   [client.views         :refer [demo home-page]]
+   [client.views         :refer [account demo landing lessonbuilder 
+                                 lessons login signup]]
    [re-frame.core        :as rf]
    [reitit.coercion.spec :as rss]
    [reitit.frontend      :as rfe]
@@ -9,17 +10,35 @@
 
 (def routes
   ["/"
-   [""     {:name        ::home
-            :view        #'home-page
-            :link-text   "home"
-            :controllers [{:start (fn [& params] (js/console.log "Entering home page"))
-                           :stop  (fn [& params] (js/console.log "Leaving home page"))}]}]
+   [""              {:name        ::landing
+                     :view        #'landing
+                     :link-text   "landing"
+                     :controllers [{:start (fn [& params] (js/console.log "Entering landing page"))
+                                    :stop  (fn [& params] (js/console.log "Leaving landing page"))}]}]
 
-   ["demo" {:name ::demo
-            :view #'demo
-            :link-text "demo"
-            :controllers [{:start (fn [& params] (js/console.log "Entering demo"))
-                           :stop  (fn [& params] (js/console.log "Leaving demo"))}]}]])
+   ["account"       {:name      ::account
+                     :view      #'account
+                     :link-text "account"}]
+
+   ["demo"          {:name      ::demo
+                     :view      #'demo
+                     :link-text "demo"}]
+
+   ["lessonbuilder" {:name      ::lessonbuilder
+                     :view      #'lessonbuilder
+                     :link-text "lessonbuilder"}]
+
+   ["lessons"       {:name      ::lessons
+                     :view      #'lessons
+                     :link-text "lessons"}]
+
+   ["login"         {:name      ::login
+                     :view      #'login
+                     :link-text "login"}]
+
+   ["signup"        {:name      ::signup
+                     :view      #'signup
+                     :link-text "signup"}]])
             
 (defn on-navigate [new-match]
   (when new-match

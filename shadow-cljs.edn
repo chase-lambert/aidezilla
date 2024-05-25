@@ -18,6 +18,6 @@
                                                        re-frame.trace/trace-enabled? true}}}
                       :devtools   {:http-root "resources/public"
                                    :http-port 3000
-                                   :preloads  [day8.re-frame-10x.preload]}
+                                   :preloads  [day8.re-frame-10x.preload.react-18]}
                       :modules    {:main {:init-fn client.core/main}}}}}
  
